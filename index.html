@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Rental</title>
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-between p-3">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-car car-icon"></i>
+            <div class="ml-3">
+                <h1 class="mb-0">CAR</h1>
+                <h5 class="mb-0">RENTAL</h5>
+            </div>
+        </div>
+        <nav class="d-none d-md-flex justify-content-center flex-grow-1">
+            <a href="#" class="mx-3 nav-link">Home</a>
+            <a href="#" class="mx-3 nav-link">About</a>
+            <a href="#" class="mx-3 nav-link">Vehicle Models</a>
+            <a href="#" class="mx-3 nav-link">Testimonials</a>
+            <a href="#" class="mx-3 nav-link">Our Team</a>
+            <a href="#" class="mx-3 nav-link">Contact</a>
+        </nav>
+        <div class="d-none d-md-flex">
+            <a href="#" class="btn btn-outline-success mx-2">Login</a>
+            <a href="#" class="btn btn-success mx-2">Register</a>
+        </div>
+        <div class="d-md-none">
+            <i class="fas fa-bars menu-icon" data-toggle="modal" data-target="#menuModal"></i>
+        </div>
+    </header>
+
+    <!-- Modal for mobile view -->
+    <div class="modal left fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="menuModalLabel">Menu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <nav class="d-flex flex-column align-items-center">
+                        <a href="#" class="btn btn-primary my-2 w-100">Home</a>
+                        <a href="#" class="btn btn-primary my-2 w-100">About</a>
+                        <a href="#" class="btn btn-primary my-2 w-100">Vehicle Models</a>
+                        <a href="#" class="btn btn-primary my-2 w-100">Testimonials</a>
+                        <a href="#" class="btn btn-primary my-2 w-100">Our Team</a>
+                        <a href="#" class="btn btn-primary my-2 w-100">Contact</a>
+                        <a href="#" class="btn btn-outline-success my-2 w-100">Login</a>
+                        <a href="#" class="btn btn-success my-2 w-100">Register</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5 pt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 write-up">
+                <h1 class="display-4">Welcome to <span class="highlight">Car Rental</span></h1>
+                <p>Find the best cars for rent at affordable prices.</p>
+                <p>Experience comfort and convenience with our wide range of vehicles.</p>
+                <div class="d-flex justify-content-start buttons" id="bookRideContainer">
+                    <a href="#bookRideContainer" class="btn btn-success mx-2">
+                        <i class="fas fa-check"></i> Book a Ride
+                    </a>
+                    
+                    <a href="#" class="btn btn-dark mx-2">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center d-none d-md-block">
+                <img src="https://th.bing.com/th?id=OIP.QronaPVUBGQUQvRA4DrHcwHaFj&w=288&h=216&c=8&rs=1&qlt=30&o=6&dpr=3&pid=3.1&rm=2" alt="Car" class="main-image">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="container bg-light p-4 rounded shadow">
+                <h2 class="text-center">Book Your Ride</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="carSelection">Select Car</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-car"></i></span>
+                            </div>
+                            <select id="carSelection" class="form-control">
+                                <option>Select a car</option>
+                                <option>Car Model 1</option>
+                                <option>Car Model 2</option>
+                                <option>Car Model 3</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="pickupLocation">Pickup Location</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <input type="text" id="pickupLocation" class="form-control" placeholder="Enter pickup location">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="dropoffLocation">Drop-off Location</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <input type="text" id="dropoffLocation" class="form-control" placeholder="Enter drop-off location">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="pickupDate">Pickup Date</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="date" id="pickupDate" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="dropoffDate">Drop-off Date</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            </div>
+                            <input type="date" id="dropoffDate" class="form-control">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="stateSelection">State</label>
+                        <select id="stateSelection" class="form-control">
+                            <option>Select your state</option>
+                            <option>State 1</option>
+                            <option>State 2</option>
+                            <option>State 3</option>
+                        </select>
+                    </div>
+    
+                    <button type="submit" class="btn btn-success btn-block">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="p">
+    <p>plan your trip now</p>
+</div>
+<div class="h">
+    <h1>Quick & easy car rental</h1>
+</div>
+
+<div class="splash-container">
+    <div class="splash">
+        <i class="fas fa-car"></i>
+        <h1>Select a Car</h1>
+        <p>We offer a big range of vehicles for all you driving needs.we have the perfect car to meet your needs.</p>
+    </div>
+    <div class="splash">
+        <i class="fas fa-headset"></i>
+        <h1>Contact Operator</h1>
+        <p>Our knowledgeable and friendly operators are always ready to help with any questions or concerns</p>
+    </div>
+    <div class="splash">
+        <i class="fas fa-dollar-sign"></i>
+        <h1>Affordability</h1>
+        <p>Enjoy affordable rates and deals</p>
+    </div>
+</div>
+
+<div class="pp">
+    <p>Vehicle Models</p>
+</div>
+<div  class="hh">
+    <h1>Our rental fleet</h1>
+</div>
+<div class="ppp">
+    <p>Choose from a variety of our amazing vehicles to rent for your next adventure or business trip</p>
+  
+</div>
+
+
+<div class="car-container">
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal1">Audi A1 S-Line</button>
+    </div>
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal2">VW Golf 6</button>
+    </div>
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal3">Toyota Camry</button>
+    </div>
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal4">BMW 320 Modernline</button>
+    </div>
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal5">Mercedes-Benz GLK</button>
+    </div>
+    <div class="car-box">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#carModal6">VW Passat CC</button>
+    </div>
+</div>
+
+<!-- Modal Template for Car 1 -->
+<div class="modal fade" id="carModal1" tabindex="-1" role="dialog" aria-labelledby="carModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel1">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/audia1.d038cf70b700e34e607a.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 1</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2023</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Automatic</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Repeat Modal Template for Cars 2 to 6 -->
+<div class="modal fade" id="carModal2" tabindex="-1" role="dialog" aria-labelledby="carModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel2">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/golf6.595c0bbfc7ce2e50aa05.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 2</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2022</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Manual</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="carModal3" tabindex="-1" role="dialog" aria-labelledby="carModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel3">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/toyotacamry.3d493a56558c50b677cc.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 3</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2021</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Automatic</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="carModal4" tabindex="-1" role="dialog" aria-labelledby="carModalLabel4" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel4">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/bmw320.84ab73b0c9133418f907.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 4</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2020</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Manual</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="carModal5" tabindex="-1" role="dialog" aria-labelledby="carModalLabel5" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel5">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/benz.0a6153731a2c1a68054a.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 5</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2019</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Automatic</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="carModal6" tabindex="-1" role="dialog" aria-labelledby="carModalLabel6" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel6">Car Specifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="car-image">
+                    <img src="https://car-rental-ten.vercel.app/static/media/passatcc.bd82bd1deac8c11e3c4d.jpg" alt="Car Image" class="img-fluid">
+                </div>
+                <table class="table mt-4">
+                    <tbody>
+                        <tr>
+                            <th>Model</th>
+                            <td>Model 6</td>
+                        </tr>
+                        <tr>
+                            <th>Year</th>
+                            <td>2008</td>
+                        </tr>
+                        <tr>
+                            <th>Doors</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>AC</th>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <th>Transmission</th>
+                            <td>Manual</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success btn-block reserve-btn">Reserve Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="full-width-container">
+    <h1>Your Ultimate Car Rental Experience Awaits!</h1>
+    <p>Choose from our wide range of cars and start your journey today.</p>
+</div>
+
+<div class="image-container" style="margin-top: 40px;">
+    <img src="https://car-rental-ten.vercel.app/static/media/main.70cd75042bdf42515d92.png" alt="Car Rental" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
+
+<div class="choose-us">
+    <p>Why Choose Us</p>
+    <h1>Best valued deals you will ever find</h1>
+    <p>Discover the best deals you'll ever find with our unbeatable offers. </p>
+    <button class="btn btn-find-details">
+        Find Details <i class="fas fa-arrow-right"></i>
+    </button>
+</div>
+
+<div class="icons-container">
+    <div class="icon-box">
+        <i class="fas fa-car"></i>
+      
+        <p>Choose from various models.</p>
+        <div class="splash-image"></div> 
+    </div>
+    <div class="icon-box">
+        <i class="fas fa-dollar-sign"></i>
+        
+        <p>Competitive pricing for all rentals.</p>
+        <div class="splash-image"></div> 
+    </div>
+    <div class="icon-box">
+        <i class="fas fa-exchange-alt"></i>
+      
+        <p>Quick and hassle-free reservations.</p>
+        <div class="splash-image"></div> 
+    </div>
+</div>
+
+<div class="full-container">
+     <p>Reviewed by People</p>
+    <h1>Client's Testimonials</h1>
+    <p>Discover the positive impact we've made on the our clients by reading through their testimonials. Our clients have experienced our service and results, and they're eager to share their positive experiences with you.</p>
+    
+    <div class="grid-container">
+        <div class="grid-item">
+            <h5>"We rented a car from this website and had an amazing experience! The booking was easy and the rental rates were very affordable. "
+
+            </h5>
+            <div class="image-container">
+              
+                <p>John Doe</p>
+            </div>
+        </div>
+        <div class="grid-item">
+            <h5>"The car was in great condition and made our trip even better. Highly recommend for this car rental website!"</h5>
+            <div class="image-container">
+               
+                <p>Jane Smith</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fully-container">
+    <img src="https://th.bing.com/th?id=OIP.Jm5CrTGzwYyZisD9LXHShgHaEF&w=336&h=185&c=8&rs=1&qlt=90&o=6&dpr=3&pid=3.1&rm=2" alt="Car Rental" class="side-image">
+    <p>FAQ</p>
+    <h1>Frequently Asked Questions</h1>
+    <p>Frequently Asked Questions About the Car Rental Booking Process on Our Website: Answers to Common Concerns and Inquiries</p>
+    
+    <div class="toggle-container">
+        <div class="item">
+            <div class="toggle-header">
+                <span>1. comparing rental car deals</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="toggle-content">
+                <p>Details about the first item?</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="toggle-header">
+                <span>2. find the car rental deals?</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="toggle-content">
+                <p>find such low rental car prices?</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="toggle-header">
+                <span>3.find such low rental car prices?</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+
+            </div>
+
+            <div class="toggle-content">
+                <p>Details about the third item.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="details-container">
+    <div class="text-section">
+        <h1>Download our app to get most out of it</h1>
+        <p>Thrown shy denote ten ladies though ask saw. Or by to he going think order event music. Incommode so intention defective at convinced. Led income months itself and houses you.</p>
+        <div class="image-links">
+            <a href="link-to-offer1.html">
+                <img src="https://car-rental-ten.vercel.app/static/media/googleapp.e6493904327fe3f9b89c7c75a4f3ae74.svg" alt="Offer 1" class="offer-image">
+            </a>
+            <a href="link-to-offer2.html">
+                <img src="https://car-rental-ten.vercel.app/static/media/appstore.35481c6295b0744dfcc00d35874fbdd8.svg" alt="Offer 2" class="offer-image">
+            </a>
+        </div>
+    </div>
+    <div class="phone-image">
+        <img src="phone.png" alt="Phone" class="large-phone-image">
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-left">
+        <div class="footer-brand">
+            <h1>CAR RENTAL</h1>
+            <p>Your trusted partner for car rentals.</p>
+            <div class="contact-info">
+                <div class="phone">
+                    <i class="fas fa-phone-alt"></i> 123-456-7890
+                </div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@example.com">info@example.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-right">
+        <div class="footer-section">
+            <h1>Subscription</h1>
+            <p>Subscribe to our newsletter for updates.</p>
+            <input type="email" placeholder="Enter your email" class="email-input">
+            <button class="btn btn-success">Subscribe</button>
+        </div>
+    </div>
+    <div class="footer-hidden">
+        <div class="footer-section">
+            <h1>About Us</h1>
+            <p><a href="about.html">Learn more about us</a></p>
+            <p><a href="services.html">Our services</a></p>
+        </div>
+        <div class="footer-section">
+            <h1>Working Hours</h1>
+            <p>Mon-Fri: 09:00 AM - 09:30 PM</p>
+            <p>Sat: 09:00 AM - 10:00 PM</p>
+            <p>Sun: Closed</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p> Designed by Emmanuel Onyeike 2024</p>
+    </div>
+</footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            for (const link of links) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+
+        $(document).ready(function() {
+            $(".btn btn-success btn-block reserve-btn").click(function() {
+                $(this).closest('.modal').modal('hide'); 
+                $('html, body').animate({
+                    scrollTop: $("#bookRideContainer").offset().top
+                }, 1000);
+            });
+        });
+        <!-- Include jQuery in your HTML before the script -->
+
+
+
+$(document).ready(function() {
+    $(".toggle-header").click(function() {
+        var content = $(this).next(".toggle-content");
+        content.slideToggle();
+        $(this).find(".toggle-icon").toggleClass("fa-chevron-down fa-chevron-up"); 
+    });
+});
+</script>
+
+
+    </script>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
